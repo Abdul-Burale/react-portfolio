@@ -1,3 +1,4 @@
+/*
 import type {Project} from './types/project.ts'
 import type { Link } from './types/link.ts'
 
@@ -9,3 +10,4 @@ interface AbdihakimBurale {
     links: Link[],
     projects: Project[],
 }
+*/
