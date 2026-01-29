@@ -6,14 +6,18 @@
   background-color: white;
 }
 
-.full-background::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(0,0,0,0.05) 1px, transparent 1px);
-  background-size: 4px 4px;
-  opacity: 0.8;
+.full-background::before{
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(to right, rgba(0,0,0,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0,0,0,0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: .6;
+  pointer-events:none;
 }
+
+
 
 
 
