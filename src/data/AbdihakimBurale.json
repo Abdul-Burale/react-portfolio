@@ -1,0 +1,50 @@
+[
+    {
+        "id": "portfolio",
+        "title": "Personal Portfolio",
+        "description": "",
+        "impact" : "",
+        "image" : {
+            "src" : "https://via.placeholder.com/800x450",
+            "alt" : "Screenshot of Personal Portfolio"
+        },
+        "links" : [
+            { "label" : "Live",   "href": "https://abdihakimburale.com"},
+            { "label" : "GitHub", "href": "https://github.com/abdul-burale"}
+        ],
+        "tags" : ["React", "Tailwind", "UI"],
+        "primaryLink" : "https://github.com/abdul-burale"
+    },
+    {
+        "id": "portfolio",
+        "title": "Personal Portfolio",
+        "description": "",
+        "impact" : "",
+        "image" : {
+            "src" : "https://via.placeholder.com/800x450",
+            "alt" : "Screenshot of Personal Portfolio"
+        },
+        "links" : [
+            { "label" : "Live",   "href": "https://abdihakimburale.com"},
+            { "label" : "GitHub", "href": "https://github.com/abdul-burale"}
+        ],
+        "tags" : ["React", "Tailwind", "UI"],
+        "primaryLink" : "https://github.com/abdul-burale"
+    },
+    {
+        "id": "portfolio",
+        "title": "Personal Portfolio",
+        "description": "",
+        "impact" : "",
+        "image" : {
+            "src" : "https://via.placeholder.com/800x450",
+            "alt" : "Screenshot of Personal Portfolio"
+        },
+        "links" : [
+            { "label" : "Live",   "href": "https://abdihakimburale.com"},
+            { "label" : "GitHub", "href": "https://github.com/abdul-burale"}
+        ],
+        "tags" : ["React", "Tailwind", "UI"],
+        "primaryLink" : "https://github.com/abdul-burale"
+    }
+]

@@ -40,7 +40,7 @@ const Hero = () => {
             </a>
             
             <a
-                href="https://abdihakimburale.com/resume.pdf/"
+                href="/Curriculum_Vitae_Portfolio.pdf"
                 target="_blank" 
                 aria-label="Curriculum Vitae"
                 className="text-slate-800 hover:text-black transition-colors"

@@ -1,7 +1,18 @@
-export interface Project {
-    image: string;
+export type ProjectLink = {
+    label: string;
+    href: string;
+};
+
+export type ProjectType = {
+    id: string;
     title: string;
-    link?: string;
     description: string;
-    technologies: string[];
+    impact?: string;
+    image: {
+        src: string;
+        alt: string;
+    }
+    links: ProjectLink[];
+    tags: string[];
+    primaryLink: string;
 }

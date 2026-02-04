@@ -1,7 +1,9 @@
-const ProjectCard = () => {
+import type { ProjectType } from "../types/project";
+
+export default function ProjectCard({ project} : { project: ProjectType}) {
     return (
-      <div className="w-full max-w-[400px] h-[500px] bg-white border border-gray-200 rounded-2xl shadow-lg flex flex-col overflow-hidden">
-        {/* 🖼️ Image Section */}
+      <article className="w-full max-w-[400px] h-[500px] bg-white border border-gray-200 rounded-2xl shadow-lg flex flex-col overflow-hidden">
+        
         <div className="h-40 flex items-center justify-center bg-gray-100 border-b border-gray-200">
           <img
             src="https://via.placeholder.com/400x200"
@@ -43,9 +45,6 @@ const ProjectCard = () => {
             </span>
           </div>
         </div>
-      </div>
+      </article>
     );
   };
-  
-  export default ProjectCard;
-  
