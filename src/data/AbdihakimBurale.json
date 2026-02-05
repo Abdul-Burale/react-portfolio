@@ -1,50 +1,34 @@
 [
     {
-        "id": "portfolio",
-        "title": "Personal Portfolio",
-        "description": "",
-        "impact" : "",
-        "image" : {
-            "src" : "https://via.placeholder.com/800x450",
-            "alt" : "Screenshot of Personal Portfolio"
-        },
-        "links" : [
-            { "label" : "Live",   "href": "https://abdihakimburale.com"},
-            { "label" : "GitHub", "href": "https://github.com/abdul-burale"}
-        ],
-        "tags" : ["React", "Tailwind", "UI"],
-        "primaryLink" : "https://github.com/abdul-burale"
+    "id": "portfolio",
+    "title": "Multi-Tenant Order Management API",
+    "description": "Backend API that allows businesses to manage users, products, and orders with secure Stripe payment links, enforcing strict multi-tenant isolation and role-based access control.",
+    "impact": "Enabled businesses to securely manage users, orders, and payments in a multi-tenant system.",
+    "image": {
+        "src": "/Multi_Tenant.png",
+        "alt": "Diagram showing multi-tenant API architecture and request flow"
+    },
+    "links": [
+        { "label": "Live",   "href": "https://abdihakimburale.com" },
+        { "label": "GitHub", "href": "https://github.com/abdul-burale/multi-tenant-order-management-api" }
+    ],
+    "tags": ["Go", "MongoDB", "Backend", "API", "Stripe", "Firebase"],
+    "primaryLink": "https://github.com/abdul-burale/multi-tenant-order-management-api"
     },
     {
-        "id": "portfolio",
-        "title": "Personal Portfolio",
-        "description": "",
-        "impact" : "",
-        "image" : {
-            "src" : "https://via.placeholder.com/800x450",
-            "alt" : "Screenshot of Personal Portfolio"
-        },
-        "links" : [
-            { "label" : "Live",   "href": "https://abdihakimburale.com"},
-            { "label" : "GitHub", "href": "https://github.com/abdul-burale"}
-        ],
-        "tags" : ["React", "Tailwind", "UI"],
-        "primaryLink" : "https://github.com/abdul-burale"
+    "id": "portfolio-dsa",
+    "title": "DSA Compendium",
+    "description": "A collection of data structures and algorithms in Python, showcasing multiple problem-solving approaches and explanations.",
+    "impact": "Highlights algorithmic proficiency and problem-solving skills.",
+    "image": {
+      "src": "/Dsa_Compendium.png",
+      "alt": "Illustration representing algorithms and data structures"
     },
-    {
-        "id": "portfolio",
-        "title": "Personal Portfolio",
-        "description": "",
-        "impact" : "",
-        "image" : {
-            "src" : "https://via.placeholder.com/800x450",
-            "alt" : "Screenshot of Personal Portfolio"
-        },
-        "links" : [
-            { "label" : "Live",   "href": "https://abdihakimburale.com"},
-            { "label" : "GitHub", "href": "https://github.com/abdul-burale"}
-        ],
-        "tags" : ["React", "Tailwind", "UI"],
-        "primaryLink" : "https://github.com/abdul-burale"
-    }
+    "links": [
+      { "label": "Live",   "href": "https://abdihakimburale.com" },
+      { "label": "GitHub", "href": "https://github.com/abdul-burale/DSA-Compendium" }
+    ],
+    "tags": ["Python", "Algorithms", "Data Structures"],
+    "primaryLink": "https://github.com/abdul-burale/DSA-Compendium"
+   }
 ]

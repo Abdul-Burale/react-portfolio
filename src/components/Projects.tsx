@@ -12,7 +12,7 @@ export default function Projects() {
           Personal Projects
         </h1>
         {/* 🧩 Card Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center">
           {projects.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
