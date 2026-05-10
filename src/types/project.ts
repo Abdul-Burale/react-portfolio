@@ -8,11 +8,12 @@ export type ProjectType = {
     title: string;
     description: string;
     impact?: string;
+    documentPath?: string;
     image: {
         src: string;
         alt: string;
     }
     links: ProjectLink[];
     tags: string[];
-    primaryLink: string;
+    primaryLink?: string;
 }

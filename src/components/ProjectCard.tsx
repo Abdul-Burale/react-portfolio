@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import type { ProjectType } from "../types/project";
 
 export default function ProjectCard({ project }: { project: ProjectType }) {
+  const documentPath = project.documentPath ?? `/projects/${project.id}`;
+
   return (
     <article className="w-full max-w-[400px] h-[575px] bg-white border border-gray-200 rounded-2xl shadow-lg flex flex-col overflow-hidden">
       <div className="flex items-center justify-center bg-gray-100 border-b border-gray-200 -mb-3">
@@ -16,9 +18,10 @@ export default function ProjectCard({ project }: { project: ProjectType }) {
         <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
 
         <Link
-          to={`/projects/${project.id}`}
-          className="inline-flex items-center gap-2 text-gray-500 underline over:text-purple-700 hover:underline mb-3 text-sm font-medium transition-colors duration-200"
-        ><span className="h-2 w-2 rounded-full bg-red-500"></span>
+          to={documentPath}
+          className="inline-flex items-center gap-2 text-gray-500 underline hover:text-purple-700 hover:underline mb-3 text-sm font-medium transition-colors duration-200"
+        >
+          <span className="h-2 w-2 rounded-full bg-red-500" />
           Read Documents
         </Link>
 

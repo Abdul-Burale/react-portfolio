@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import projectsData from "../data/AbdihakimBurale.json";
 import type { ProjectType } from "../types/project";
+import PageTransition from "./PageTransition";
 
 const projects = projectsData as ProjectType[];
 
@@ -153,97 +154,101 @@ export default function ProjectDetail() {
 
   if (!project || !detail) {
     return (
-      <main className="min-h-screen bg-white px-6 py-12">
-        <div className="max-w-4xl mx-auto">
-          <Link to="/" className="text-sm text-gray-500 hover:underline">
-            ← Back to portfolio
-          </Link>
+      <PageTransition>
+        <main className="min-h-screen bg-white px-6 py-12">
+          <div className="max-w-4xl mx-auto">
+            <Link to="/" className="text-sm text-gray-500 hover:underline">
+              ← Back to portfolio
+            </Link>
 
-          <h1 className="text-3xl font-bold mt-8">Project not found</h1>
-          <p className="text-gray-600 mt-3">
-            This project page does not exist yet.
-          </p>
-        </div>
-      </main>
+            <h1 className="text-3xl font-bold mt-8">Project not found</h1>
+            <p className="text-gray-600 mt-3">
+              This project page does not exist yet.
+            </p>
+          </div>
+        </main>
+      </PageTransition>
     );
   }
 
   return (
-    <main className="min-h-screen bg-white">
-      <div className="max-w-5xl mx-auto px-6 py-10">
-        <Link to="/" className="text-sm text-gray-500 hover:underline">
-          ← Back to portfolio
-        </Link>
+    <PageTransition>
+      <main className="min-h-screen bg-white">
+        <div className="max-w-5xl mx-auto px-6 py-10">
+          <Link to="/" className="text-sm text-gray-500 hover:underline">
+            ← Back to portfolio
+          </Link>
 
-        <section className="mt-8">
-          <img
-            src={project.image.src}
-            alt={project.image.alt}
-            className="w-full rounded-2xl border border-gray-200 shadow-lg object-cover"
-          />
+          <section className="mt-8">
+            <img
+              src={project.image.src}
+              alt={project.image.alt}
+              className="w-full rounded-2xl border border-gray-200 shadow-lg object-cover"
+            />
 
-          <div className="mt-10">
-            <p className="text-sm uppercase tracking-wide text-gray-500">
-              Project Case Study
-            </p>
+            <div className="mt-10">
+              <p className="text-sm uppercase tracking-wide text-gray-500">
+                Project Case Study
+              </p>
 
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight mt-2">
-              {project.title}
-            </h1>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight mt-2">
+                {project.title}
+              </h1>
 
-            <p className="text-xl text-gray-600 mt-4">{detail.subtitle}</p>
+              <p className="text-xl text-gray-600 mt-4">{detail.subtitle}</p>
 
-            <p className="text-gray-700 leading-7 mt-6 max-w-3xl">
-              {detail.overview}
-            </p>
+              <p className="text-gray-700 leading-7 mt-6 max-w-3xl">
+                {detail.overview}
+              </p>
 
-            <div className="flex flex-wrap gap-2 mt-6">
-              {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="bg-gray-900 text-white text-xs px-3 py-1 rounded-full"
-                >
-                  {tag}
-                </span>
-              ))}
+              <div className="flex flex-wrap gap-2 mt-6">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="bg-gray-900 text-white text-xs px-3 py-1 rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
-          {detail.highlights.map((item) => (
-            <div
-              key={item}
-              className="border border-gray-200 rounded-xl bg-gray-50 p-4 text-sm text-gray-700"
-            >
-              {item}
-            </div>
-          ))}
-        </section>
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12">
+            {detail.highlights.map((item) => (
+              <div
+                key={item}
+                className="border border-gray-200 rounded-xl bg-gray-50 p-4 text-sm text-gray-700"
+              >
+                {item}
+              </div>
+            ))}
+          </section>
 
-        <section className="mt-14 space-y-10">
-          {detail.sections.map((section) => (
-            <article key={section.title}>
-              <h2 className="text-2xl font-semibold">{section.title}</h2>
-              <p className="text-gray-700 leading-7 mt-3">{section.body}</p>
-            </article>
-          ))}
-        </section>
+          <section className="mt-14 space-y-10">
+            {detail.sections.map((section) => (
+              <article key={section.title}>
+                <h2 className="text-2xl font-semibold">{section.title}</h2>
+                <p className="text-gray-700 leading-7 mt-3">{section.body}</p>
+              </article>
+            ))}
+          </section>
 
-        <section className="border-t border-gray-200 mt-14 pt-8 flex flex-wrap gap-3">
-          {project.links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border border-gray-300 rounded-lg px-4 py-2 text-sm hover:bg-gray-100 transition"
-            >
-              {link.label}
-            </a>
-          ))}
-        </section>
-      </div>
-    </main>
+          <section className="border-t border-gray-200 mt-14 pt-8 flex flex-wrap gap-3">
+            {project.links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border border-gray-300 rounded-lg px-4 py-2 text-sm hover:bg-gray-100 transition"
+              >
+                {link.label}
+              </a>
+            ))}
+          </section>
+        </div>
+      </main>
+    </PageTransition>
   );
 }

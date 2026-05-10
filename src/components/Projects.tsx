@@ -9,7 +9,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative z-10 py-20 overflow-hidden bg-[#f5f3ef] border-t border-[#e7e3dc]"
+      className="relative z-10 min-h-screen flex items-center overflow-hidden bg-[#f5f3ef] border-t border-[#e7e3dc] py-16"
     >
       <div className="max-w-6xl mx-auto px-4">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-16 tracking-[-0.03em] text-[#0d0c0a]">

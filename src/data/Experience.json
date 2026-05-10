@@ -1,0 +1,30 @@
+[
+  {
+    "id": "care-solution-bureau-tech-support",
+    "company": "Care Solution Bureau",
+    "role": "Technical Support",
+    "date": "Jul 2021 – Jul 2023",
+    "location": "London, United Kingdom",
+    "companyUrl": "https://www.caresolutionbureau.co.uk/",
+    "logo": "/care.png",
+    "points": [
+      "Resolved 20+ client issues daily",
+      "Handled hardware, software, and network support"
+    ],
+    "back": "Diagnosed and resolved technical issues for 20+ clients daily, often within 15 minutes or less. Troubleshot hardware and software configuration, network connectivity, and system optimisation issues while communicating clearly with end-users to understand their needs and provide practical solutions."
+  },
+  {
+    "id": "offdays-internship",
+    "company": "Offdays",
+    "role": "Software Development Intern",
+    "date": "May 2026 – Present",
+    "location": "Remote",
+    "companyUrl": "https://offdays.io",
+    "logo": "/offdays.png",
+    "points": [
+      "Working on AI content automation",
+      "Designing a scalable article generation workflow"
+    ],
+    "back": "Supporting development of an AI-assisted content pipeline for generating country-specific articles at scale. Initial work focuses on designing automation that can reduce manual publishing work and replace parts of an older WordPress-based workflow."
+  }
+]

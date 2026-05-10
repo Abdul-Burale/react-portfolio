@@ -1,27 +1,29 @@
 [
   {
-    "id": "portfolio-multi-tenant-api",
-    "title": "Multi-Tenant Order Management API",
-    "description": "Backend API for managing users, products, orders, and Stripe payment links with tenant isolation and role-based access control.",
-    "impact": "Designed a secure multi-tenant backend with payments, RBAC, and isolated business data.",
+    "id": "orderflow",
+    "title": "OrderFlow",
+    "description": "Multi-tenant backend API for managing users, products, orders, and Stripe payment workflows with tenant isolation and role-based access control.",
+    "impact": "Designing a secure backend architecture for tenant-scoped data, RBAC, and payment workflows.",
+    "documentPath": "/projects/orderflow",
     "image": {
       "src": "/OrderFlow.png",
-      "alt": "Diagram showing multi-tenant API architecture and request flow"
+      "alt": "Diagram showing OrderFlow multi-tenant API architecture and request flow"
     },
     "links": [
       {
         "label": "GitHub",
-        "href": "https://github.com/abdul-burale/multi-tenant-order-management-api"
+        "href": "https://github.com/abdul-burale/orderflow"
       }
     ],
     "tags": ["Go", "MongoDB", "Backend", "API", "Stripe", "Firebase"],
-    "primaryLink": "https://github.com/abdul-burale/multi-tenant-order-management-api"
+    "primaryLink": "/projects/orderflow"
   },
-    {
+  {
     "id": "portfolio-ctrl-jump",
     "title": "Ctrl + Jump",
     "description": "Pixel-art 2D platformer built with Python and Pygame, playable in the browser through a Pygbag/WebAssembly build.",
     "impact": "Built a complete platformer with movement physics, dashing, enemies, projectiles, particles, screenshake, level transitions, and a browser-playable deployment.",
+    "documentPath": "/projects/ctrl-jump",
     "image": {
       "src": "/Ctrl_Jump.png",
       "alt": "Screenshot of Ctrl + Jump, a pixel-art 2D platformer game"
@@ -44,17 +46,18 @@
     "title": "LLVM Optimisations for Energy-Efficient Code",
     "description": "Research project evaluating how LLVM compiler optimisations affect runtime, average power draw, and estimated energy consumption on real low-power hardware.",
     "impact": "Built a Raspberry Pi 5 framework to measure LLVM/Clang optimisation effects using PolyBench, Python, and PMIC power readings.",
+    "documentPath": "/projects/energy-research",
     "image": {
       "src": "/Energy_Efficency_Research.png",
       "alt": "Portfolio image showing LLVM optimisation pipeline for energy-efficient code on Raspberry Pi 5"
     },
     "links": [
       {
-        "label": "GitHub",
-        "href": "https://github.com/abdul-burale"
+        "label": "Read Dissertation",
+        "href": "/LLVM_Energy_Research_Dissertation.pdf"
       }
     ],
     "tags": ["LLVM", "Clang", "Raspberry Pi", "Python", "PolyBench", "Energy Efficiency"],
-    "primaryLink": "https://github.com/abdul-burale"
+    "primaryLink": "/projects/energy-research"
   }
 ]
