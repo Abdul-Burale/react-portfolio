@@ -97,6 +97,52 @@ const projectDetails: Record<
       "REST API backend architecture",
     ],
   },
+
+  "portfolio-ctrl-jump": {
+    subtitle: "Browser-playable 2D platformer built with Python and Pygame",
+    overview:
+      "Ctrl + Jump is a pixel-art 2D platformer built in Python with Pygame. The game includes movement physics, jumping, wall-sliding, dashing, enemies, projectiles, particles, screenshake, level transitions, and a browser-playable deployment using Pygbag/WebAssembly.",
+    sections: [
+      {
+        title: "Project Aim",
+        body:
+          "The aim was to build a complete 2D platformer from scratch using Python and Pygame, focusing on responsive movement, game feel, enemy behaviour, level progression, and polished visual effects.",
+      },
+      {
+        title: "Gameplay Systems",
+        body:
+          "The game includes classic platformer movement such as running, jumping, wall-sliding, and dashing. It also includes enemy patrols, projectile attacks, player death and respawn behaviour, level transitions, and camera scrolling.",
+      },
+      {
+        title: "Rendering and Effects",
+        body:
+          "The rendering system uses layered surfaces to separate the background, foreground, silhouettes, particles, sparks, and transition effects. Screenshake, dash trails, leaves, sparks, and particle animations were added to improve the feel and visual feedback of the game.",
+      },
+      {
+        title: "Level and Asset Structure",
+        body:
+          "Levels are loaded from JSON-based tilemaps, with tiles, spawners, enemies, and decorative elements defined as map data. The project separates game logic into modules for entities, tilemaps, particles, sparks, clouds, animations, and utility functions.",
+      },
+      {
+        title: "Browser Deployment",
+        body:
+          "The game was packaged for the browser using Pygbag, allowing the Python/Pygame project to run through WebAssembly. The deployed version can be played directly from a URL without installing Python or Pygame.",
+      },
+      {
+        title: "What I Learned",
+        body:
+          "This project strengthened my understanding of game loops, collision handling, animation systems, tilemaps, entity behaviour, particle effects, audio, camera movement, and Python game deployment to the web.",
+      },
+    ],
+    highlights: [
+      "Built with Python and Pygame",
+      "Browser-playable through Pygbag/WebAssembly",
+      "Implemented run, jump, wall-slide, and dash movement",
+      "Created enemy patrol and projectile systems",
+      "Added particles, sparks, screenshake, and transitions",
+      "Used JSON tilemaps for level progression",
+    ],
+  },
 };
 
 export default function ProjectDetail() {

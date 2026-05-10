@@ -5,7 +5,7 @@
     "description": "Backend API for managing users, products, orders, and Stripe payment links with tenant isolation and role-based access control.",
     "impact": "Designed a secure multi-tenant backend with payments, RBAC, and isolated business data.",
     "image": {
-      "src": "/Multi_Tenant.png",
+      "src": "/OrderFlow.png",
       "alt": "Diagram showing multi-tenant API architecture and request flow"
     },
     "links": [
@@ -16,6 +16,28 @@
     ],
     "tags": ["Go", "MongoDB", "Backend", "API", "Stripe", "Firebase"],
     "primaryLink": "https://github.com/abdul-burale/multi-tenant-order-management-api"
+  },
+    {
+    "id": "portfolio-ctrl-jump",
+    "title": "Ctrl + Jump",
+    "description": "Pixel-art 2D platformer built with Python and Pygame, playable in the browser through a Pygbag/WebAssembly build.",
+    "impact": "Built a complete platformer with movement physics, dashing, enemies, projectiles, particles, screenshake, level transitions, and a browser-playable deployment.",
+    "image": {
+      "src": "/Ctrl_Jump.png",
+      "alt": "Screenshot of Ctrl + Jump, a pixel-art 2D platformer game"
+    },
+    "links": [
+      {
+        "label": "Play",
+        "href": "https://abdul-burale.github.io/WebGame/"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/abdul-burale/WebGame"
+      }
+    ],
+    "tags": ["Python", "Pygame", "Pygbag", "WebAssembly", "Game Development"],
+    "primaryLink": "https://abdul-burale.github.io/WebGame/"
   },
   {
     "id": "portfolio-energy-research",
