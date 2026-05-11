@@ -1,84 +1,72 @@
 import { Link } from "react-router-dom";
 import PageTransition from "../components/PageTransition";
 
-const responsibilities = [
+const designAreas = [
   {
-    title: "Tenant Resolution",
+    title: "Tenant Isolation",
     body:
-      "Every protected request must be associated with a tenant before accessing business data.",
+      "Products, orders, members, and payment workflows are scoped to a tenant so one business cannot access another business’s data.",
   },
   {
-    title: "Authentication",
+    title: "Identity and Membership",
     body:
-      "Firebase Authentication will verify user identity before requests reach protected handlers.",
+      "Firebase Authentication verifies the user, while the API resolves which tenant memberships and roles that user has inside the system.",
   },
   {
-    title: "Authorisation",
+    title: "Role-Aware Operations",
     body:
-      "Role-based access control will determine what each authenticated user can do inside a tenant.",
+      "Roles such as owner, admin, and staff will control who can manage products, view orders, invite members, or generate payment links.",
   },
   {
-    title: "Data Isolation",
+    title: "PostgreSQL Data Model",
     body:
-      "MongoDB queries must stay scoped by tenantId so businesses cannot access each other’s data.",
+      "The database is designed around tenants, users, memberships, products, orders, order items, and payment records.",
   },
   {
-    title: "Payment Workflow",
+    title: "Stripe Payment Links",
     body:
-      "Stripe payment links will be generated for order workflows once the order state is valid.",
+      "Valid orders can generate Stripe payment links, allowing a business to send customers a hosted checkout link without building a full checkout UI.",
   },
   {
-    title: "API Documentation",
+    title: "Docker Development Setup",
     body:
-      "The project will include endpoint examples, request bodies, response shapes, and error cases.",
+      "Docker is used to run the local PostgreSQL environment consistently across development and testing.",
   },
 ];
 
-const roadmap = [
-  {
-    phase: "01",
-    title: "Foundation",
-    status: "In progress",
-    items: ["Go API structure", "MongoDB connection", "Configuration loading"],
-  },
-  {
-    phase: "02",
-    title: "Identity",
-    status: "Planned",
-    items: ["Firebase token verification", "User model", "Protected routes"],
-  },
-  {
-    phase: "03",
-    title: "Tenant System",
-    status: "Planned",
-    items: ["Tenant model", "Tenant middleware", "Tenant-scoped queries"],
-  },
-  {
-    phase: "04",
-    title: "Business Logic",
-    status: "Planned",
-    items: ["Products", "Orders", "Role-based permissions"],
-  },
-  {
-    phase: "05",
-    title: "Payments",
-    status: "Planned",
-    items: ["Stripe integration", "Payment links", "Order payment status"],
-  },
-  {
-    phase: "06",
-    title: "Documentation",
-    status: "Planned",
-    items: ["README", "API examples", "Architecture diagrams", "Testing sandbox"],
-  },
+const pipeline = [
+  "Client Request",
+  "Firebase Auth",
+  "Go API",
+  "Tenant Context",
+  "Role Check",
+  "PostgreSQL / Stripe",
 ];
 
-const apiExamples = [
-  "GET /health",
-  "POST /api/tenants",
-  "GET /api/products",
-  "POST /api/orders",
-  "POST /api/orders/:id/payment-link",
+const apiGroups = [
+  {
+    label: "Tenants",
+    endpoints: ["POST /api/tenants", "GET /api/tenants/:id"],
+  },
+  {
+    label: "Members",
+    endpoints: [
+      "POST /api/tenants/:id/members",
+      "PATCH /api/tenants/:id/members/:userId/role",
+    ],
+  },
+  {
+    label: "Products",
+    endpoints: ["POST /api/products", "GET /api/products"],
+  },
+  {
+    label: "Orders",
+    endpoints: ["POST /api/orders", "GET /api/orders/:id"],
+  },
+  {
+    label: "Payments",
+    endpoints: ["POST /api/orders/:id/payment-link"],
+  },
 ];
 
 export default function OrderFlowPage() {
@@ -93,57 +81,77 @@ export default function OrderFlowPage() {
             ← Back to portfolio
           </Link>
 
-          <section className="mt-10 rounded-[2rem] bg-[#0d0c0a] text-white overflow-hidden">
-            <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="p-8 md:p-12">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-medium text-white/70">
-                  <span className="h-2 w-2 rounded-full bg-[#e05252]" />
-                  In active development
-                </div>
+          <section className="mt-12 rounded-[2rem] border border-[#e8e3dc] bg-white p-8 md:p-12">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#e8e3dc] bg-[#f5f3ef] px-4 py-2 text-xs font-semibold text-[#666]">
+              <span className="h-2 w-2 rounded-full bg-[#e05252]" />
+              In active development
+            </div>
 
-                <p className="mt-10 text-xs uppercase tracking-[0.2em] text-white/40">
-                  Backend Systems Project
-                </p>
+            <p className="mt-10 text-xs uppercase tracking-[0.2em] text-[#999]">
+              Backend Systems Project
+            </p>
 
-                <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-[-0.06em] leading-[0.9]">
-                  OrderFlow
-                </h1>
+            <h1 className="mt-4 text-5xl md:text-7xl font-black tracking-[-0.06em] leading-[0.9]">
+              OrderFlow
+            </h1>
 
-                <p className="mt-6 text-lg md:text-xl text-white/70 leading-8 max-w-2xl">
-                  A multi-tenant backend API for managing users, products,
-                  orders, and payment workflows with tenant-scoped data,
-                  Firebase authentication, RBAC, MongoDB, and Stripe.
-                </p>
+            <p className="mt-6 max-w-3xl text-lg md:text-xl text-[#555] leading-8">
+              A multi-tenant backend API for managing business users, products,
+              orders, and Stripe payment links with tenant-aware access control.
+            </p>
 
-                <div className="flex flex-wrap gap-2 mt-7">
-                  {["Go", "MongoDB", "Firebase", "Stripe", "RBAC", "REST API"].map(
-                    (tag) => (
-                      <span
-                        key={tag}
-                        className="rounded-full bg-white px-3 py-1 text-xs font-medium text-[#0d0c0a]"
-                      >
-                        {tag}
-                      </span>
-                    )
-                  )}
-                </div>
-              </div>
+            <div className="flex flex-wrap gap-2 mt-7">
+              {[
+                "Go",
+                "PostgreSQL",
+                "Docker",
+                "Firebase Auth",
+                "Stripe",
+                "REST API",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full bg-[#151513] px-3 py-1 text-xs font-medium text-white"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </section>
 
-              <div className="border-t lg:border-t-0 lg:border-l border-white/10 p-8 md:p-12 bg-white/[0.03]">
-                <p className="text-xs uppercase tracking-[0.2em] text-white/40">
-                  Design Challenge
-                </p>
+          <section className="mt-16 grid grid-cols-1 lg:grid-cols-[0.85fr_1.15fr] gap-10">
+            <div>
+              <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
+                Design Challenge
+              </p>
 
-                <h2 className="mt-4 text-3xl font-bold tracking-[-0.04em]">
-                  The hard part is not CRUD. The hard part is trust boundaries.
-                </h2>
+              <h2 className="text-3xl md:text-4xl font-black tracking-[-0.05em] leading-tight">
+                The hard part is not creating endpoints.
+              </h2>
+            </div>
 
-                <p className="mt-5 text-white/65 leading-8">
-                  Each request needs to prove who the user is, which tenant they
-                  belong to, what role they have, and whether the data operation
-                  is allowed. That is the core engineering problem this project
-                  is being built around.
-                </p>
+            <div className="rounded-3xl border border-[#e8e3dc] bg-white p-8">
+              <p className="text-[#555] leading-8">
+                The main engineering challenge is making every operation
+                tenant-aware. Before the API touches business data, each request
+                needs to resolve who the user is, which tenant they belong to,
+                what role they have, and whether the operation is allowed.
+              </p>
+
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {[
+                  "User identity",
+                  "Tenant membership",
+                  "User role",
+                  "Allowed operation",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-2xl border border-[#e8e3dc] bg-[#f5f3ef] px-4 py-3 text-sm font-semibold text-[#444]"
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
           </section>
@@ -151,26 +159,27 @@ export default function OrderFlowPage() {
           <section className="mt-16 grid grid-cols-1 lg:grid-cols-[0.75fr_1.25fr] gap-10">
             <div>
               <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
-                System Intent
+                Project Purpose
               </p>
+
               <h2 className="text-3xl font-bold tracking-[-0.03em]">
-                What OrderFlow is designed to prove
+                What OrderFlow is designed to show
               </h2>
             </div>
 
             <div className="text-[#555] leading-8 space-y-5">
               <p>
-                OrderFlow is being built to demonstrate backend architecture,
-                not just endpoint creation. The system is designed around
-                multi-tenancy, authentication, permissions, payment workflow
-                integration, and clear API documentation.
+                OrderFlow is designed to show backend architecture beyond basic
+                CRUD. The project focuses on tenant isolation, authenticated
+                access, role-aware operations, relational data modelling, and
+                payment link workflows.
               </p>
 
               <p>
-                The final version should make it easy to understand how a
-                business signs up, how users belong to a tenant, how products
-                and orders are scoped, and how Stripe payment links are created
-                safely.
+                The final version should make it clear how a business is
+                created, how users become members of that business, how products
+                and orders stay tenant-scoped, and how payment links are
+                generated safely for valid orders.
               </p>
             </div>
           </section>
@@ -178,31 +187,29 @@ export default function OrderFlowPage() {
           <section className="mt-16">
             <div className="mb-8">
               <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
-                Request Flow
+                Request Pipeline
               </p>
+
               <h2 className="text-3xl font-bold tracking-[-0.03em]">
-                Planned backend pipeline
+                Planned backend flow
               </h2>
             </div>
 
             <div className="bg-white border border-[#e8e3dc] rounded-3xl p-6 md:p-8">
               <div className="grid grid-cols-1 md:grid-cols-6 gap-3">
-                {[
-                  "Client",
-                  "Firebase Auth",
-                  "Go API",
-                  "Tenant Middleware",
-                  "RBAC",
-                  "MongoDB / Stripe",
-                ].map((step, index, arr) => (
+                {pipeline.map((step, index) => (
                   <div
                     key={step}
-                    className="relative rounded-2xl bg-[#f5f3ef] border border-[#e8e3dc] p-4 text-center text-sm font-semibold"
+                    className="relative rounded-2xl border border-[#e3d4c3] bg-[#fff7ed] p-4 text-center text-sm font-bold text-[#3a2a1a]"
                   >
+                    <div className="mx-auto mb-2 flex h-7 w-7 items-center justify-center rounded-full bg-[#e05252] text-xs font-black text-white">
+                      {index + 1}
+                    </div>
+
                     {step}
 
-                    {index < arr.length - 1 && (
-                      <span className="hidden md:block absolute top-1/2 -right-3 -translate-y-1/2 text-[#aaa]">
+                    {index < pipeline.length - 1 && (
+                      <span className="hidden md:block absolute top-1/2 -right-3 -translate-y-1/2 text-[#b8885c]">
                         →
                       </span>
                     )}
@@ -211,9 +218,10 @@ export default function OrderFlowPage() {
               </div>
 
               <p className="mt-6 max-w-3xl text-[#666] leading-7">
-                The planned request lifecycle is deliberately middleware-heavy:
-                verify identity, resolve the tenant, check permissions, validate
-                the request, then perform tenant-scoped business logic.
+                The planned lifecycle is middleware-driven: authenticate the
+                user, resolve tenant context, check permissions, validate the
+                request, then run tenant-scoped business logic against
+                PostgreSQL or generate a Stripe payment link.
               </p>
             </div>
           </section>
@@ -221,15 +229,16 @@ export default function OrderFlowPage() {
           <section className="mt-16">
             <div className="mb-8">
               <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
-                Backend Responsibilities
+                Core Design Areas
               </p>
+
               <h2 className="text-3xl font-bold tracking-[-0.03em]">
-                What the API will handle
+                The backend decisions behind the project
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {responsibilities.map((item) => (
+              {designAreas.map((item) => (
                 <article
                   key={item.title}
                   className="bg-white border border-[#e8e3dc] rounded-3xl p-6"
@@ -244,78 +253,41 @@ export default function OrderFlowPage() {
             </div>
           </section>
 
-          <section className="mt-16 grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8">
-            <article className="bg-white border border-[#e8e3dc] rounded-3xl p-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
-                Security Model
-              </p>
-
-              <h2 className="text-3xl font-bold tracking-[-0.03em]">
-                Every data operation must be tenant-aware.
-              </h2>
-
-              <p className="text-[#555] leading-8 mt-5">
-                The API should avoid trusting tenant identifiers blindly from
-                the client. Tenant context should be resolved through verified
-                identity and server-side checks, then applied consistently to
-                database queries.
-              </p>
-            </article>
-
-            <article className="bg-white border border-[#e8e3dc] rounded-3xl p-8">
-              <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
-                Documentation Goal
-              </p>
-
-              <h2 className="text-3xl font-bold tracking-[-0.03em]">
-                Backend projects need visible proof.
-              </h2>
-
-              <p className="text-[#555] leading-8 mt-5">
-                The final write-up will include architecture diagrams, endpoint
-                examples, request and response bodies, role behaviour, error
-                cases, and a sandbox-style area for testing selected API flows.
-              </p>
-            </article>
-          </section>
-
           <section className="mt-16">
             <div className="mb-8">
               <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
-                Build Roadmap
+                API Surface
               </p>
+
               <h2 className="text-3xl font-bold tracking-[-0.03em]">
-                Development plan
+                Planned endpoint groups
               </h2>
             </div>
 
-            <div className="space-y-4">
-              {roadmap.map((phase) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {apiGroups.map((group, index) => (
                 <article
-                  key={phase.phase}
-                  className="bg-white border border-[#e8e3dc] rounded-3xl p-6 md:p-7 grid grid-cols-1 md:grid-cols-[0.25fr_0.5fr_1.25fr] gap-5 items-start"
+                  key={group.label}
+                  className="rounded-3xl border border-[#e3d4c3] bg-[#fffaf3] p-6 shadow-sm"
                 >
-                  <div>
-                    <p className="text-4xl font-black tracking-[-0.06em] text-[#e05252]">
-                      {phase.phase}
-                    </p>
-                  </div>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#151513] text-xs font-black text-white">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
 
-                  <div>
                     <h3 className="text-xl font-bold tracking-[-0.03em]">
-                      {phase.title}
+                      {group.label}
                     </h3>
-                    <p className="text-sm text-[#888] mt-1">{phase.status}</p>
                   </div>
 
-                  <div className="flex flex-wrap gap-2">
-                    {phase.items.map((item) => (
-                      <span
-                        key={item}
-                        className="rounded-full border border-[#e8e3dc] bg-[#f5f3ef] px-3 py-1 text-sm text-[#555]"
+                  <div className="mt-5 space-y-3 font-mono text-sm">
+                    {group.endpoints.map((endpoint) => (
+                      <p
+                        key={endpoint}
+                        className="rounded-xl border border-[#ead8c4] bg-white px-3 py-2 text-[#5a4632]"
                       >
-                        {item}
-                      </span>
+                        {endpoint}
+                      </p>
                     ))}
                   </div>
                 </article>
@@ -323,8 +295,43 @@ export default function OrderFlowPage() {
             </div>
           </section>
 
-          <section className="mt-16 bg-[#0d0c0a] text-white rounded-3xl p-8 md:p-10">
-            <p className="text-xs uppercase tracking-[0.2em] text-white/40 mb-3">
+          <section className="mt-16 grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-8">
+            <article className="bg-white border border-[#e8e3dc] rounded-3xl p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
+                PostgreSQL Data Model
+              </p>
+
+              <h2 className="text-3xl font-bold tracking-[-0.03em]">
+                ERD placeholder
+              </h2>
+
+              <p className="text-[#555] leading-8 mt-5">
+                The planned ERD will show how tenants, users, memberships,
+                products, orders, order items, and payment records relate to one
+                another. This section will be updated with a diagram once the
+                schema stabilises.
+              </p>
+            </article>
+
+            <article className="bg-white border border-[#e8e3dc] rounded-3xl p-8">
+              <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
+                Local Development
+              </p>
+
+              <h2 className="text-3xl font-bold tracking-[-0.03em]">
+                Docker-backed PostgreSQL setup
+              </h2>
+
+              <p className="text-[#555] leading-8 mt-5">
+                Docker is used to provide a consistent local PostgreSQL
+                environment, making the API easier to run, reset, test, and
+                document without depending on a manually configured database.
+              </p>
+            </article>
+          </section>
+
+          <section className="mt-16 rounded-3xl border border-[#e8e3dc] bg-white p-8 md:p-10">
+            <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-3">
               Future API Sandbox
             </p>
 
@@ -334,17 +341,19 @@ export default function OrderFlowPage() {
                   Planned interactive endpoint area
                 </h2>
 
-                <p className="text-white/70 leading-8 mt-5">
+                <p className="text-[#555] leading-8 mt-5">
                   Once the API is stable, this page can include a small sandbox
                   for selected routes. The aim is to show how authentication,
-                  tenant scoping, roles, and payment flows behave in practice.
+                  tenant context, roles, and payment link generation behave in
+                  practice.
                 </p>
               </div>
 
-              <div className="rounded-2xl bg-white/5 border border-white/10 p-5 font-mono text-sm text-white/65 space-y-3 overflow-x-auto">
-                {apiExamples.map((endpoint) => (
-                  <p key={endpoint}>{endpoint}</p>
-                ))}
+              <div className="rounded-2xl border border-[#e8e3dc] bg-[#f5f3ef] p-5 font-mono text-sm text-[#666] space-y-3 overflow-x-auto">
+                <p>POST /api/tenants</p>
+                <p>POST /api/products</p>
+                <p>POST /api/orders</p>
+                <p>POST /api/orders/:id/payment-link</p>
               </div>
             </div>
           </section>
@@ -374,7 +383,7 @@ export default function OrderFlowPage() {
 
             <p className="text-sm text-[#777] leading-7 mt-6 max-w-3xl">
               OrderFlow is currently in active development. The backend,
-              documentation, architecture diagrams, and endpoint examples will
+              documentation, ERD, endpoint examples, and future sandbox will
               continue to evolve as the project is implemented.
             </p>
           </section>

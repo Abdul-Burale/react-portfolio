@@ -5,7 +5,11 @@ import { motion } from "framer-motion";
 
 const projects = projectsData as ProjectType[];
 
-export default function Projects() {
+export default function Projects({
+  onScrollToExperience,
+}: {
+  onScrollToExperience?: () => void;
+}) {
   return (
     <section
       id="projects"
@@ -30,18 +34,29 @@ export default function Projects() {
         </div>
       </div>
 
-      <motion.div
-        aria-hidden="true"
-        className="hidden md:flex absolute right-10 top-1/2 -translate-y-1/2 text-[#999]"
+      <motion.button
+        type="button"
+        onClick={onScrollToExperience}
+        aria-label="Scroll to experience section"
+        className="hidden md:flex absolute right-10 top-1/2 -translate-y-1/2 text-[#999] hover:text-[#0d0c0a] transition-colors cursor-pointer bg-transparent border-0 p-0"
         animate={{ x: [0, 10, 0] }}
+        whileHover={{ scale: 1.12 }}
+        whileTap={{ scale: 0.95 }}
         transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "easeInOut",
+          x: {
+            duration: 1.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+          },
+          scale: {
+            type: "spring",
+            stiffness: 260,
+            damping: 18,
+          },
         }}
       >
-        <span className="text-3xl">⇢</span>
-      </motion.div>
+        <span className="text-3xl text-red-200">⇢</span>
+      </motion.button>
     </section>
   );
 }

@@ -24,12 +24,25 @@ export default function ProjectsExperienceScroll() {
     { clamp: true }
   );
 
+  const scrollToExperience = () => {
+    if (!targetRef.current) return;
+
+    const sectionTop = targetRef.current.offsetTop;
+    const sectionHeight = targetRef.current.offsetHeight;
+    const targetScroll = sectionTop + sectionHeight - window.innerHeight;
+
+    window.scrollTo({
+      top: targetScroll,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <section ref={targetRef} className="relative h-[260vh] bg-[#f5f3ef]">
       <div className="sticky top-0 h-screen overflow-hidden">
         <motion.div style={{ x }} className="flex h-screen w-[200vw]">
           <section className="h-screen w-screen shrink-0 overflow-hidden bg-[#f5f3ef]">
-            <Projects />
+            <Projects onScrollToExperience={scrollToExperience} />
           </section>
 
           <section className="h-screen w-screen shrink-0 overflow-hidden bg-[#f5f3ef]">
