@@ -9,9 +9,9 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative z-10 min-h-screen flex items-center overflow-hidden bg-[#f5f3ef] border-t border-[#e7e3dc] py-16"
+      className="relative z-10 h-screen flex items-center overflow-hidden bg-[#f5f3ef] border-t border-[#e7e3dc] py-16"
     >
-      <div className="max-w-6xl mx-auto px-4">
+      <div className="max-w-6xl mx-auto px-4 w-full">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-16 tracking-[-0.03em] text-[#0d0c0a]">
           Personal Projects
         </h1>
@@ -29,6 +29,19 @@ export default function Projects() {
           ))}
         </div>
       </div>
+
+      <motion.div
+        aria-hidden="true"
+        className="hidden md:flex absolute right-10 top-1/2 -translate-y-1/2 text-[#999]"
+        animate={{ x: [0, 10, 0] }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      >
+        <span className="text-3xl">⇢</span>
+      </motion.div>
     </section>
   );
 }

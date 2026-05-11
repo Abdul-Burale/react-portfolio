@@ -1,22 +1,34 @@
-import { motion } from "framer-motion";
+import { motion, useTransform } from "framer-motion";
+import type { MotionValue } from "framer-motion";
 import experiencesData from "../data/Experience.json";
 import type { ExperienceType } from "../types/experience";
 import ExperienceCard from "./ExperienceCard";
 
 const experiences = experiencesData as ExperienceType[];
 
-const fadeUp = {
-  hidden: {
-    opacity: 0,
-    y: 28,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-  },
-};
+export default function Experience({
+  scrollProgress,
+}: {
+  scrollProgress: MotionValue<number>;
+}) {
+  const titleOpacity = useTransform(scrollProgress, [0.42, 0.54, 1], [0, 1, 1]);
+  const titleY = useTransform(scrollProgress, [0.42, 0.54, 1], [28, 0, 0]);
 
-export default function Experience() {
+  const timelineOpacity = useTransform(
+    scrollProgress,
+    [0.48, 0.62, 1],
+    [0, 1, 1]
+  );
+  const timelineY = useTransform(scrollProgress, [0.48, 0.62, 1], [30, 0, 0]);
+  const timelineScaleX = useTransform(
+    scrollProgress,
+    [0.5, 0.68, 1],
+    [0, 1, 1]
+  );
+
+  const cardOpacity = useTransform(scrollProgress, [0.56, 0.72, 1], [0, 1, 1]);
+  const cardY = useTransform(scrollProgress, [0.56, 0.72, 1], [30, 0, 0]);
+
   return (
     <div
       id="experience"
@@ -25,11 +37,7 @@ export default function Experience() {
       <div className="max-w-6xl mx-auto px-6 w-full">
         <motion.div
           className="-mt-32"
-          variants={fadeUp}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 0.55, ease: "easeOut" }}
+          style={{ opacity: titleOpacity, y: titleY }}
         >
           <p className="text-xs uppercase tracking-[0.2em] text-[#999] mb-4">
             Experience
@@ -42,32 +50,19 @@ export default function Experience() {
 
         <motion.div
           className="relative mt-32"
-          initial={{ opacity: 0, y: 36 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.65, delay: 0.15, ease: "easeOut" }}
+          style={{ opacity: timelineOpacity, y: timelineY }}
         >
           <motion.div
             className="absolute left-0 right-0 top-0 h-[3px] rounded-full bg-[#151513] origin-left"
-            initial={{ scaleX: 0 }}
-            whileInView={{ scaleX: 1 }}
-            viewport={{ once: true, amount: 0.35 }}
-            transition={{ duration: 0.8, delay: 0.25, ease: "easeOut" }}
+            style={{ scaleX: timelineScaleX }}
           />
 
           <div className="relative grid grid-cols-1 md:grid-cols-2 gap-14 justify-items-center">
-            {experiences.map((experience, index) => (
+            {experiences.map((experience) => (
               <motion.div
                 key={experience.id}
                 className="relative flex w-full justify-center pt-16"
-                initial={{ opacity: 0, y: 34 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.35 }}
-                transition={{
-                  duration: 0.55,
-                  delay: 0.35 + index * 0.15,
-                  ease: "easeOut",
-                }}
+                style={{ opacity: cardOpacity, y: cardY }}
               >
                 <span className="absolute top-0 left-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#e05252] ring-8 ring-[#f5f3ef]" />
 

@@ -11,18 +11,29 @@ export default function ProjectsExperienceScroll() {
     offset: ["start start", "end end"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], ["0vw", "-100vw"]);
+  const x = useTransform(
+    scrollYProgress,
+    [0, 0.25, 1],
+    ["0vw", "0vw", "-100vw"]
+  );
+
+  const experienceProgress = useTransform(
+    scrollYProgress,
+    [0.25, 1],
+    [0, 1],
+    { clamp: true }
+  );
 
   return (
-    <section ref={targetRef} className="relative h-[220vh]">
+    <section ref={targetRef} className="relative h-[260vh] bg-[#f5f3ef]">
       <div className="sticky top-0 h-screen overflow-hidden">
         <motion.div style={{ x }} className="flex h-screen w-[200vw]">
-          <section className="h-screen w-screen shrink-0 overflow-y-auto bg-[#fafaf9]">
+          <section className="h-screen w-screen shrink-0 overflow-hidden bg-[#f5f3ef]">
             <Projects />
           </section>
 
-          <section className="h-screen w-screen shrink-0 bg-[#0d0c0a] text-white">
-            <Experience />
+          <section className="h-screen w-screen shrink-0 overflow-hidden bg-[#f5f3ef]">
+            <Experience scrollProgress={experienceProgress} />
           </section>
         </motion.div>
       </div>
