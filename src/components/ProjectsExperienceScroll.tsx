@@ -38,18 +38,30 @@ export default function ProjectsExperienceScroll() {
   };
 
   return (
-    <section ref={targetRef} className="relative h-[260vh] bg-[#f5f3ef]">
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <motion.div style={{ x }} className="flex h-screen w-[200vw]">
-          <section className="h-screen w-screen shrink-0 overflow-hidden bg-[#f5f3ef]">
-            <Projects onScrollToExperience={scrollToExperience} />
-          </section>
+    <>
+      {/* Desktop: pinned horizontal scroll */}
+      <section
+        ref={targetRef}
+        className="relative hidden md:block h-[260vh] bg-[#f5f3ef]"
+      >
+        <div className="sticky top-0 h-screen overflow-hidden">
+          <motion.div style={{ x }} className="flex h-screen w-[200vw]">
+            <section className="h-screen w-screen shrink-0 overflow-hidden bg-[#f5f3ef]">
+              <Projects onScrollToExperience={scrollToExperience} />
+            </section>
 
-          <section className="h-screen w-screen shrink-0 overflow-hidden bg-[#f5f3ef]">
-            <Experience scrollProgress={experienceProgress} />
-          </section>
-        </motion.div>
-      </div>
-    </section>
+            <section className="h-screen w-screen shrink-0 overflow-hidden bg-[#f5f3ef]">
+              <Experience scrollProgress={experienceProgress} />
+            </section>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Mobile: normal vertical layout */}
+      <section className="block md:hidden bg-[#f5f3ef]">
+        <Projects />
+        <Experience />
+      </section>
+    </>
   );
 }

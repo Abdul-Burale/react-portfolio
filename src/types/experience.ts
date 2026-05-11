@@ -4,8 +4,8 @@ export interface ExperienceType {
   role: string;
   date: string;
   location: string;
-  companyUrl: string;
-  logo: string;
-  points: string[];
+  link: string;
+  image: string;
+  front: string[];
   back: string;
 }

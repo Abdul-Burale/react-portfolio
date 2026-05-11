@@ -1,30 +1,30 @@
 [
   {
-    "id": "care-solution-bureau-tech-support",
+    "id": "care-solution-bureau",
     "company": "Care Solution Bureau",
     "role": "Technical Support",
     "date": "Jul 2021 – Jul 2023",
     "location": "London, United Kingdom",
-    "companyUrl": "https://www.caresolutionbureau.co.uk/",
-    "logo": "/care.png",
-    "points": [
-      "Resolved 20+ client issues daily",
-      "Handled hardware, software, and network support"
+    "link": "https://caresolutionbureau.co.uk",
+    "image": "/care.png",
+    "front": [
+      "Resolved 20+ client technical issues daily.",
+      "Troubleshot software, hardware, and network problems."
     ],
-    "back": "Diagnosed and resolved technical issues for 20+ clients daily, often within 15 minutes or less. Troubleshot hardware and software configuration, network connectivity, and system optimisation issues while communicating clearly with end-users to understand their needs and provide practical solutions."
+    "back": "Provided end-user technical support across software, hardware, connectivity, and configuration issues. Built stronger troubleshooting, communication, and customer-facing problem-solving skills."
   },
   {
-    "id": "offdays-internship",
+    "id": "offdays",
     "company": "Offdays",
     "role": "Software Development Intern",
     "date": "May 2026 – Present",
     "location": "Remote",
-    "companyUrl": "https://offdays.io",
-    "logo": "/offdays.png",
-    "points": [
-      "Working on AI content automation",
-      "Designing a scalable article generation workflow"
+    "link": "https://offdays.io",
+    "image": "/offdays.png",
+    "front": [
+      "Supporting AI-assisted content automation work.",
+      "Designing pipeline ideas for country-specific article generation."
     ],
-    "back": "Supporting development of an AI-assisted content pipeline for generating country-specific articles at scale. Initial work focuses on designing automation that can reduce manual publishing work and replace parts of an older WordPress-based workflow."
+    "back": "Supporting early-stage automation for an AI-assisted content pipeline designed to generate country-specific articles at higher scale and reduce manual publishing work."
   }
 ]

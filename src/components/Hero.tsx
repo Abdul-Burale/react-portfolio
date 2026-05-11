@@ -22,7 +22,7 @@ const Hero = () => {
                     initial="hidden"
                     animate="visible"
                     transition={{ duration: 0.6, ease: "easeOut" }}
-                    className="font-black text-5xl md:text-7xl tracking-[-0.04em] text-slate-950"
+                    className="font-black text-[2.1rem] sm:text-4xl md:text-7xl tracking-[-0.04em] text-slate-950 whitespace-nowrap"
                 >
                     Abdihakim Burale
                 </motion.h1>

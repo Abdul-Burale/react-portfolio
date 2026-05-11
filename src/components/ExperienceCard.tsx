@@ -6,9 +6,9 @@ export default function ExperienceCard({
   role,
   date,
   location,
-  companyUrl,
-  logo,
-  points,
+  link,
+  image,
+  front,
   back,
 }: ExperienceType) {
   const [flipped, setFlipped] = useState(false);
@@ -17,7 +17,7 @@ export default function ExperienceCard({
     <button
       type="button"
       onClick={() => setFlipped((current) => !current)}
-      className="group relative h-[270px] w-[430px] md:w-[470px] text-left [perspective:1000px]"
+      className="group relative h-[260px] w-full max-w-[430px] text-left [perspective:1000px]"
       aria-label={`Flip card for ${company}`}
     >
       <div
@@ -26,8 +26,8 @@ export default function ExperienceCard({
         }`}
       >
         <div className="absolute inset-0 rounded-2xl border border-[#e2ddd4] bg-white p-6 shadow-md [backface-visibility:hidden] transition group-hover:-translate-y-1 group-hover:shadow-xl">
-          <div className="flex items-start justify-between gap-5">
-            <div className="min-w-0">
+          <div className="flex items-start justify-between gap-4">
+            <div>
               <p className="text-xs uppercase tracking-[0.18em] text-[#999]">
                 {date}
               </p>
@@ -38,67 +38,47 @@ export default function ExperienceCard({
 
               <p className="mt-2 text-sm font-semibold text-[#666]">{role}</p>
 
-              <p className="mt-2 text-xs font-medium text-[#999]">
-                📍 {location}
-              </p>
+              <p className="mt-1 text-xs text-[#999]">{location}</p>
             </div>
 
-            <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl border border-[#e8e3dc] bg-[#f5f3ef] p-2">
-              <img
-                src={logo}
-                alt={`${company} logo`}
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
+            <img
+              src={image}
+              alt={`${company} logo`}
+              className="h-14 w-14 rounded-xl border border-[#e8e3dc] object-contain bg-white p-2"
+            />
           </div>
 
-          <ul className="mt-5 space-y-2">
-            {points.map((point) => (
-              <li
-                key={point}
-                className="flex gap-2 text-sm font-semibold leading-6 text-[#444]"
-              >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-[#e05252]" />
-                <span>{point}</span>
+          <ul className="mt-5 space-y-2 text-[13px] leading-5 text-[#555]">
+            {front.map((point) => (
+              <li key={point} className="font-semibold">
+                • {point}
               </li>
             ))}
           </ul>
 
-          <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between gap-3">
+          <div className="absolute bottom-5 left-6 right-6 flex items-center justify-between">
             <a
-              href={companyUrl}
+              href={link}
               target="_blank"
               rel="noopener noreferrer"
               onClick={(event) => event.stopPropagation()}
-              className="rounded-full border border-[#e2ddd4] bg-[#f5f3ef] px-3 py-1 text-[11px] font-semibold text-[#555] transition hover:bg-white hover:text-[#0d0c0a]"
+              className="text-xs font-semibold text-[#777] hover:text-[#0d0c0a] transition"
             >
-              🔗 Company
+              Visit company ↗
             </a>
 
-            <span className="rounded-full bg-[#151513] px-3 py-1 text-[11px] font-medium text-white shadow-sm transition group-hover:bg-[#333]">
+            <span className="text-xs font-semibold text-[#e05252]">
               Click to flip
             </span>
           </div>
         </div>
 
-        <div className="absolute inset-0 rounded-2xl border border-[#e2ddd4] bg-white p-6 text-[#0d0c0a] shadow-md [backface-visibility:hidden] [transform:rotateY(180deg)]">
-          <div className="flex items-center justify-between gap-4">
-            <p className="text-xs uppercase tracking-[0.18em] text-[#999]">
-              Details
-            </p>
-
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-[#e8e3dc] bg-[#f5f3ef] p-2">
-              <img
-                src={logo}
-                alt={`${company} logo`}
-                className="max-h-full max-w-full object-contain"
-              />
-            </div>
-          </div>
-
-          <p className="mt-7 text-sm font-medium leading-7 text-[#444]">
-            {back}
+        <div className="absolute inset-0 rounded-2xl border border-[#e2ddd4] bg-white p-6 shadow-md [backface-visibility:hidden] [transform:rotateY(180deg)]">
+          <p className="text-xs uppercase tracking-[0.18em] text-[#999]">
+            Details
           </p>
+
+          <p className="mt-6 text-sm leading-7 text-[#555]">{back}</p>
         </div>
       </div>
     </button>

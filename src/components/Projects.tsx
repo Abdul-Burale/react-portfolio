@@ -13,10 +13,10 @@ export default function Projects({
   return (
     <section
       id="projects"
-      className="relative z-10 h-screen flex items-center overflow-hidden bg-[#f5f3ef] border-t border-[#e7e3dc] py-16"
+      className="relative z-10 min-h-screen md:h-screen flex items-start md:items-center overflow-visible md:overflow-hidden bg-[#f5f3ef] border-t border-[#e7e3dc] py-20 md:py-16"
     >
       <div className="max-w-6xl mx-auto px-4 w-full">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-16 tracking-[-0.03em] text-[#0d0c0a]">
+        <h1 className="text-3xl md:text-5xl font-bold text-center mb-10 md:mb-16 tracking-[-0.03em] text-[#0d0c0a]">
           Personal Projects
         </h1>
 
