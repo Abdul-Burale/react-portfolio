@@ -2,12 +2,13 @@ import "./index.css";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
-import Hero from "./components/Hero";
+import Hero from "./pages/HeroPage";
 
 import EnergyResearchPage from "./pages/EnergyResearchPage";
 import CtrlJumpPage from "./pages/CtrlJumpPage";
 import OrderFlowPage from "./pages/OrderFlowPage";
 
+import ScrollToTop from "./components/ScrollToTop";
 import ProjectsExperienceScroll from "./components/ProjectsExperienceScroll";
 
 function Home() {
@@ -39,6 +40,7 @@ function AnimatedRoutes() {
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <AnimatedRoutes />
     </BrowserRouter>
   );

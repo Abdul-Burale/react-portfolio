@@ -17,7 +17,7 @@ export default function ExperienceCard({
     <button
       type="button"
       onClick={() => setFlipped((current) => !current)}
-      className="group relative h-[260px] w-full max-w-[430px] text-left [perspective:1000px]"
+      className="group relative h-[270px] w-full max-w-[430px] md:max-w-[460px] lg:max-w-[500px] text-left [perspective:1000px]"
       aria-label={`Flip card for ${company}`}
     >
       <div
@@ -27,7 +27,7 @@ export default function ExperienceCard({
       >
         <div className="absolute inset-0 rounded-2xl border border-[#e2ddd4] bg-white p-6 shadow-md [backface-visibility:hidden] transition group-hover:-translate-y-1 group-hover:shadow-xl">
           <div className="flex items-start justify-between gap-4">
-            <div>
+            <div className="min-w-0">
               <p className="text-xs uppercase tracking-[0.18em] text-[#999]">
                 {date}
               </p>
@@ -44,7 +44,7 @@ export default function ExperienceCard({
             <img
               src={image}
               alt={`${company} logo`}
-              className="h-14 w-14 rounded-xl border border-[#e8e3dc] object-contain bg-white p-2"
+              className="h-16 w-16 md:h-20 md:w-20 shrink-0 rounded-xl border border-[#e8e3dc] object-contain bg-white p-2"
             />
           </div>
 
@@ -68,7 +68,7 @@ export default function ExperienceCard({
             </a>
 
             <span className="text-xs font-semibold text-[#e05252]">
-              Click to flip
+            ↻ Flip
             </span>
           </div>
         </div>

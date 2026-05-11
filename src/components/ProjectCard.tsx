@@ -22,7 +22,7 @@ export default function ProjectCard({ project }: { project: ProjectType }) {
           className="inline-flex items-center gap-2 text-gray-500 underline hover:text-purple-700 hover:underline mb-3 text-sm font-medium transition-colors duration-200"
         >
           <span className="h-2 w-2 rounded-full bg-red-500" />
-          Read Documents
+          Project Details
         </Link>
 
         <p className="text-sm text-gray-600 mb-3 flex-1">

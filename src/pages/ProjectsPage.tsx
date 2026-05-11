@@ -1,4 +1,4 @@
-import ProjectCard from "./ProjectCard";
+import ProjectCard from "../components/ProjectCard";
 import type { ProjectType } from "../types/project";
 import projectsData from "../data/AbdihakimBurale.json";
 import { motion } from "framer-motion";
@@ -55,7 +55,7 @@ export default function Projects({
           },
         }}
       >
-        <span className="text-3xl text-red-200">⇢</span>
+        <span className="text-3xl text-red-400">⇢</span>
       </motion.button>
     </section>
   );

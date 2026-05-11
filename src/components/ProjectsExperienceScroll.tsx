@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Projects from "./Projects";
-import Experience from "./Experience";
+import Projects from "../pages/ProjectsPage";
+import Experience from "../pages/ExperiencePage";
 
 export default function ProjectsExperienceScroll() {
   const targetRef = useRef<HTMLDivElement | null>(null);
@@ -13,7 +13,7 @@ export default function ProjectsExperienceScroll() {
 
   const x = useTransform(
     scrollYProgress,
-    [0, 0.25, 1],
+    [0, 0.08, 1],
     ["0vw", "0vw", "-100vw"]
   );
 

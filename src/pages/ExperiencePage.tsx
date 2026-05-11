@@ -2,7 +2,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import type { MotionValue } from "framer-motion";
 import experiencesData from "../data/Experience.json";
 import type { ExperienceType } from "../types/experience";
-import ExperienceCard from "./ExperienceCard";
+import ExperienceCard from "../components/ExperienceCard";
 
 const experiences = experiencesData as ExperienceType[];
 
