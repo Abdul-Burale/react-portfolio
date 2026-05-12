@@ -13,16 +13,24 @@ const fadeUp = {
   },
 };
 
+const iconHover = {
+  y: -6,
+  rotate: -6,
+  scale: 1.08,
+};
+
+const iconTransition = {
+  type: "spring" as const,
+  stiffness: 300,
+  damping: 18,
+};
+
 const Hero = () => {
   const scrollToProjects = () => {
-    const projects = document.getElementById("projects");
-
-    if (projects) {
-      projects.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    document.getElementById("projects")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
@@ -74,51 +82,69 @@ const Hero = () => {
           transition={{ duration: 0.55, delay: 0.36, ease: "easeOut" }}
           className="flex gap-6 pt-4"
         >
-          <a
+          <motion.a
             href="https://www.linkedin.com/in/abdul-burale/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
             className="text-slate-800 hover:text-black transition-colors"
+            whileHover={iconHover}
+            whileTap={{ scale: 0.95 }}
+            transition={iconTransition}
           >
             <FaLinkedin size={28} />
-          </a>
+          </motion.a>
 
-          <a
+          <motion.a
             href="https://github.com/Abdul-Burale/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
             className="text-slate-800 hover:text-black transition-colors"
+            whileHover={iconHover}
+            whileTap={{ scale: 0.95 }}
+            transition={iconTransition}
           >
             <FaGithub size={28} />
-          </a>
+          </motion.a>
 
-          <a
-            href="/Curriculum_Vitae_Portfolio.pdf"
+          <motion.a
+            href="/CV_2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Curriculum Vitae"
             className="text-slate-800 hover:text-black transition-colors"
+            whileHover={iconHover}
+            whileTap={{ scale: 0.95 }}
+            transition={iconTransition}
           >
             <TbFileCv size={28} />
-          </a>
+          </motion.a>
         </motion.nav>
       </div>
 
       <motion.button
         type="button"
         onClick={scrollToProjects}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, delay: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center text-slate-400 hover:text-slate-700 transition-colors cursor-pointer bg-transparent border-0 p-0"
         aria-label="Scroll to projects"
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[#e05252] hover:text-[#0d0c0a] transition-colors cursor-pointer bg-transparent border-0 p-0"
-        animate={{ y: [0, 8, 0] }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "easeInOut",
-        }}
       >
-        <span className="text-2xl">⌄</span>
+        <span className="text-xs tracking-widest uppercase mb-2">Scroll</span>
+
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{
+            duration: 1.8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="h-8 w-px bg-slate-300 relative"
+        >
+          <span className="absolute left-1/2 top-0 h-2 w-2 -translate-x-1/2 rounded-full bg-[#e05252]" />
+        </motion.div>
       </motion.button>
     </section>
   );
