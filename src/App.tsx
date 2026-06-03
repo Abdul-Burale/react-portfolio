@@ -10,6 +10,8 @@ import OrderFlowPage from "./pages/OrderFlowPage";
 
 import ScrollToTop from "./components/ScrollToTop";
 import ProjectsExperienceScroll from "./components/ProjectsExperienceScroll";
+import { initGoogleAnalytics, trackPageView } from "./analytics";
+import { useEffect } from "react";
 
 function Home() {
   return (
@@ -24,6 +26,11 @@ function Home() {
 
 function AnimatedRoutes() {
   const location = useLocation();
+
+  useEffect(() => {
+    initGoogleAnalytics();
+    trackPageView(`${location.pathname}${location.search}`);
+  }, [location.pathname, location.search]);
 
   return (
     <AnimatePresence mode="wait">
