@@ -1,4 +1,28 @@
-# React + TypeScript + Vite
+# React Portfolio
+
+## Google Analytics
+
+The site expects a GA4 web stream measurement ID at build time. Copy
+`.env.example` to `.env.local` for local development:
+
+```dotenv
+VITE_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+```
+
+Set the same `VITE_GA_MEASUREMENT_ID` environment variable in the hosting
+provider for the production environment, then redeploy the site. Vite embeds
+environment variables during the build, so adding or changing the variable
+without a new deployment will not update the live site.
+
+Use Google Analytics **Reports > Realtime** to verify a visit. Browser content
+blockers can prevent the analytics script from loading; the browser console
+will report missing or invalid configuration and script-loading failures.
+
+For production diagnostics, visit the deployed site with `?ga_debug=1`, then
+open Google Analytics **Admin > DebugView**. Debug mode remains enabled for the
+browser tab's session. Visit with `?ga_debug=0` to disable it.
+
+## Development
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
